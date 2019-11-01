@@ -1,0 +1,36 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  display: block;
+  margin: 8px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-footer-row,
+mat-header-row,
+mat-row {
+  min-height: 48px !important;
+  padding: 0 24px;
+}
+
+mat-cell:first-of-type,
+mat-footer-cell:first-of-type,
+mat-header-cell:first-of-type {
+  padding-left: 0px !important;
+}
+
+mat-footer-row::after,
+mat-header-row::after,
+mat-row::after {
+  display: none !important;
+  min-height: 0 !important;
+  content: "";
+}
+
+mat-cell {
+  min-height: 0 !important;
+}

@@ -1,0 +1,73 @@
+<div class="mat-app-background basic-container">
+  <mat-card>Banks</mat-card>
+  <mat-card>
+    <div class="example-header" fxLayout="row">
+      <mat-form-field>
+        <input
+          matInput
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Filter"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="example-container mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="Bank ID">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            ID
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="Bank ID">
+            {{ row.bank_id }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- IFSC Column -->
+        <ng-container matColumnDef="IFSC">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            IFSC
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="IFSC">
+            {{ row.ifsc }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- BANK Name Column -->
+        <ng-container matColumnDef="Bank Name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Bank
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="Bank Name">
+            {{ row.bank_name }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- City Column -->
+        <ng-container matColumnDef="City">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            City
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="City">
+            {{ row.city }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- State Column -->
+        <ng-container matColumnDef="State">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            State
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="State">
+            {{ row.state }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+      </mat-table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </mat-card>
+</div>
